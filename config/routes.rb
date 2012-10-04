@@ -1,4 +1,13 @@
 SquashgamEs::Application.routes.draw do
+  # TODO: Do I need these lines?
+  # get "oauths/oauth"
+  # get "oauths/callback"
+ 
+  match "oauth/callback" => "oauths#callback"
+  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
+  root :to => 'application#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
